@@ -3,18 +3,21 @@ import java.util.Scanner;
 public class main {
 public static void main(String[] args) {
 
-    double tutar, kdvOran = 0.18, kdvTutar, kdvliTutar ;
+
+    double kdvOran = 0.18 , kdvOran2 = 0.08;
+    int tutar ;
     Scanner input = new Scanner(System.in);
-    System.out.println("Ücret tutarını giriniz: ");
-    tutar = input.nextDouble();
+    System.out.println("Ürün fiyatını giriniz :");
+    tutar = input.nextInt();
 
-    kdvTutar = tutar*kdvOran;
-    kdvliTutar = tutar+kdvTutar;
+    double toplamKdv = (tutar <= 1000) ? tutar * kdvOran : tutar * kdvOran2;
 
-    System.out.println("Kdv'siz tutar:" + tutar);
-    System.out.println("Kdv oranı:" + kdvOran);
-    System.out.println("Kdv tutarı: " + kdvTutar);
-    System.out.println("Toplam tutar: " +kdvliTutar);
+    System.out.println("Kdv'siz Tutar : " + tutar);
+    System.out.println("Kdv'li Tutar : " + (tutar+toplamKdv));
+    System.out.println("Toplam Kdv : " + toplamKdv);
+
+    double kdvorani = (tutar > 1000) ? kdvOran2 : kdvOran;
+    System.out.println("Kdv Oranı:" + kdvorani);
 
 
 
